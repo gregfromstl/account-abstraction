@@ -12,7 +12,7 @@ async function main() {
 
     const signer = createWalletClient({
         account: account,
-        chain: sepolia,
+        chain: sepolia, // replace with your chain definition
         transport: http(),
     });
 
@@ -32,7 +32,7 @@ async function main() {
     });
 
     const tx = {
-        to: "0xe5fa7b69A2315eaa234CCA7697738317a84fd31b",
+        to: "0xbb6F64205FcE79EC5362fdBe3F73FBa04c67f8b8", // replace with your contract address
         data: request,
     };
 
