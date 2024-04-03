@@ -1,24 +1,18 @@
 import "dotenv/config";
 import { SupportedSigner, createSmartAccountClient } from "@biconomy/account";
-import { encodeFunctionData, parseAbi } from "viem";
-import { createThirdwebClient } from "thirdweb";
-import { privateKeyAccount } from "thirdweb/wallets";
-import { viemAdapter } from "thirdweb/adapters/viem";
-import { sepolia } from "thirdweb/chains";
+import { createWalletClient, encodeFunctionData, http, parseAbi } from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+import { sepolia } from "viem/chains";
 
 async function main() {
-    const client = createThirdwebClient({
-        clientId: process.env.THIRDWEB_CLIENT_ID!,
-    });
-    const account = privateKeyAccount({
-        client,
-        privateKey: process.env.PRIVATE_KEY! as `0x${string}`,
-    });
+    const account = privateKeyToAccount(
+        process.env.PRIVATE_KEY! as `0x${string}`
+    );
 
-    const signer = viemAdapter.walletClient.toViem({
+    const signer = createWalletClient({
         account: account,
         chain: sepolia, // replace with your chain definition
-        client,
+        transport: http(),
     });
 
     const smartWallet = await createSmartAccountClient({
