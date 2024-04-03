@@ -24,6 +24,7 @@
     "dependencies": {
         "@biconomy/account": "^4.1.1",
         "dotenv": "^16.4.5",
+        "thirdweb": "^5.1.0",
         "viem": "^2.9.5"
     }
 }
