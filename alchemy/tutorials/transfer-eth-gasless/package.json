@@ -1,11 +1,12 @@
 {
-    "name": "transfer-eth",
+    "name": "transfer-eth-gasless",
     "version": "1.0.0",
     "description": "",
     "main": "dist/index.js",
+    "type": "module",
     "scripts": {
         "lint": "eslint 'src/**/*.ts'",
-        "start": "ts-node ./src/index.ts",
+        "start": "tsx ./src/index.ts",
         "dev": "nodemon",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -18,7 +19,7 @@
         "@typescript-eslint/parser": "^7.4.0",
         "eslint": "^8.57.0",
         "nodemon": "^3.1.0",
-        "ts-node": "^10.9.2",
+        "tsx": "^4.7.2",
         "typescript": "^5.4.3"
     },
     "dependencies": {
@@ -26,5 +27,10 @@
         "@alchemy/aa-core": "^3.6.1",
         "dotenv": "^16.4.5",
         "viem": "^2.9.5"
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "ESNext"
+        }
     }
 }
