@@ -15,6 +15,7 @@ import { createWalletClient, http } from "viem";
 const PRIVATE_KEY = process.env.PRIVATE_KEY! as Hex;
 const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY!;
 const ALCHEMY_API_URL = process.env.ALCHEMY_API_URL!;
+const PAYMASTER_POLICY_ID = process.env.PAYMASTER_POLICY_ID!;
 
 async function fundSCA(address: Address) {
     const account = privateKeyToAccount(PRIVATE_KEY);
@@ -46,6 +47,9 @@ async function main() {
         signer,
         chain: sepolia,
         apiKey: ALCHEMY_API_KEY,
+        gasManagerConfig: {
+            policyId: PAYMASTER_POLICY_ID,
+        },
     });
 
     const counterfactualAddress = smartAccountClient.getAddress();
