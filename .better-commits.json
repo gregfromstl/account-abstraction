@@ -86,6 +86,14 @@
                 "label": "biconomy"
             },
             {
+                "value": "alchemy",
+                "label": "alchemy"
+            },
+            {
+                "value": "thirdweb",
+                "label": "thirdweb"
+            },
+            {
                 "value": "",
                 "label": "none"
             }

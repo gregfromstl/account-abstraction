@@ -22,7 +22,8 @@
         "typescript": "^5.4.3"
     },
     "dependencies": {
-        "@biconomy/account": "^4.1.1",
+        "@alchemy/aa-alchemy": "^3.7.3",
+        "@alchemy/aa-core": "^3.6.1",
         "dotenv": "^16.4.5",
         "viem": "^2.9.5"
     }

@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { SupportedSigner, createSmartAccountClient } from "@biconomy/account";
-import { createWalletClient, encodeFunctionData, http, parseAbi } from "viem";
+import { createWalletClient, http, parseEther } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { sepolia } from "viem/chains";
 
@@ -23,16 +23,10 @@ async function main() {
     const saAddress = await smartWallet.getAccountAddress();
     console.log("SA Address", saAddress);
 
-    // replace this with your own function call
-    const request = encodeFunctionData({
-        abi: parseAbi(["function mint()"]),
-        functionName: "mint",
-        args: [],
-    });
-
     const tx = {
-        to: "0xbb6F64205FcE79EC5362fdBe3F73FBa04c67f8b8", // replace with your contract address
-        data: request,
+        to: signer.account.address, // send eth back to the local account
+        value: parseEther("0.01"),
+        data: "0x",
     };
 
     const userOpResponse = await smartWallet.sendTransaction(tx);
