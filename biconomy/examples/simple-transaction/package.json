@@ -1,5 +1,5 @@
 {
-    "name": "biconomy-simple-transaction-tutorial",
+    "name": "biconomy-simple-transaction-example",
     "version": "1.0.0",
     "description": "",
     "main": "dist/index.js",
